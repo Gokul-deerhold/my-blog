@@ -1,8 +1,4 @@
-/*!
-  * Bootstrap v4.1.0 (https://getbootstrap.com/)
-  * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-  */
+
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
@@ -537,12 +533,7 @@
     return Button;
   }($);
 
-  /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.0): carousel.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-   * --------------------------------------------------------------------------
-   */
+  
 
   var Carousel = function ($$$1) {
     /**
@@ -646,8 +637,6 @@
       };
 
       _proto.nextWhenVisible = function nextWhenVisible() {
-        // Don't call next when the page isn't visible
-        // or the carousel or its parent isn't visible
         if (!document.hidden && $$$1(this._element).is(':visible') && $$$1(this._element).css('visibility') !== 'hidden') {
           this.next();
         }
@@ -754,13 +743,7 @@
           });
 
           if ('ontouchstart' in document.documentElement) {
-            // If it's a touch-enabled device, mouseenter/leave are fired as
-            // part of the mouse compatibility events on first tap - the carousel
-            // would stop cycling until user tapped out of it;
-            // here, we listen for touchend, explicitly pause the carousel
-            // (as if it's the second time we tap on it, mouseenter compat event
-            // is NOT fired) and after a timeout (to allow for mouse compatibility
-            // events to fire) we explicitly restart cycling
+         
             $$$1(this._element).on(Event.TOUCHEND, function () {
               _this2.pause();
 
@@ -884,7 +867,6 @@
         }
 
         if (!activeElement || !nextElement) {
-          // Some weirdness is happening, so we bail
           return;
         }
 
@@ -1038,12 +1020,7 @@
     return Carousel;
   }($);
 
-  /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.0): collapse.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-   * --------------------------------------------------------------------------
-   */
+ 
 
   var Collapse = function ($$$1) {
     /**
@@ -1366,7 +1343,6 @@
 
 
     $$$1(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-      // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
       if (event.currentTarget.tagName === 'A') {
         event.preventDefault();
       }
@@ -1399,29 +1375,10 @@
   }($);
 
   /**!
-   * @fileOverview Kickass library to create and place poppers near their reference elements.
+   * @fileOverview
    * @version 1.14.1
    * @license
-   * Copyright (c) 2016 Federico Zivolo and contributors
-   *
-   * Permission is hereby granted, free of charge, to any person obtaining a copy
-   * of this software and associated documentation files (the "Software"), to deal
-   * in the Software without restriction, including without limitation the rights
-   * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-   * copies of the Software, and to permit persons to whom the Software is
-   * furnished to do so, subject to the following conditions:
-   *
-   * The above copyright notice and this permission notice shall be included in all
-   * copies or substantial portions of the Software.
-   *
-   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-   * SOFTWARE.
-   */
+  */
   var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
   var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
   var timeoutDuration = 0;
@@ -1462,9 +1419,7 @@
   var supportsMicroTasks = isBrowser && window.Promise;
 
   /**
-  * Create a debounced version of a method, that's asynchronously deferred
-  * but called in the minimum time possible.
-  *
+  
   * @method
   * @memberof Popper.Utils
   * @argument {Function} fn
@@ -1473,11 +1428,10 @@
   var debounce = supportsMicroTasks ? microtaskDebounce : taskDebounce;
 
   /**
-   * Check if the given variable is a function
    * @method
    * @memberof Popper.Utils
-   * @argument {Any} functionToCheck - variable to check
-   * @returns {Boolean} answer to: is a function?
+   * @argument {Any} functionToCheck 
+   * @returns {Boolean} 
    */
   function isFunction(functionToCheck) {
     var getType = {};
@@ -1485,7 +1439,6 @@
   }
 
   /**
-   * Get CSS computed property of the given element
    * @method
    * @memberof Popper.Utils
    * @argument {Eement} element
@@ -2075,8 +2028,7 @@
   }
 
   /**
-   * Utility used to transform the `auto` placement to the placement with more
-   * available space.
+  
    * @method
    * @memberof Popper.Utils
    * @argument {Object} data - The data object generated by update method
@@ -2323,9 +2275,7 @@
     // compute reference element offsets
     data.offsets.reference = getReferenceOffsets(this.state, this.popper, this.reference, this.options.positionFixed);
 
-    // compute auto placement, store placement inside the data object,
-    // modifiers will be able to edit `placement` if needed
-    // and refer to originalPlacement to know the original value
+ 
     data.placement = computeAutoPlacement(this.options.placement, data.offsets.reference, this.popper, this.reference, this.options.modifiers.flip.boundariesElement, this.options.modifiers.flip.padding);
 
     // store the computed placement inside `originalPlacement`
